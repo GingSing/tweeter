@@ -1,0 +1,27 @@
+form {
+  font-family: 'Bungee', cursive;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+  background: none;
+  border: none;
+  border-bottom: 3px solid black;
+  margin-bottom: 10px;
+}
+
+form input {
+  color: white;
+  background-color: blue;
+  border: none;
+}
+
+.counter {
+  position: relative;
+  display: inline-block;
+  left: 100%;
+  width: 47px;
+  margin-left: -170px;
+  text-align: right;
+}
