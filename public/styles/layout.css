@@ -5,9 +5,14 @@
  */
 html {
   box-sizing: border-box;
+  font-family: Sans-Serif;
 }
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+nav span{
+  font-family: 'Bungee', cursive;
 }
 
 /*
@@ -17,9 +22,19 @@ html {
 body {
   color: #545149;
   background-color: #f4f1ec;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 24px;
+  height: 1000px;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ main {
+   width: 90%;
+   position: relative;
+   top: 520px;
+   background-color: #f4f1ec;
+   margin: 0 auto;
+ }
