@@ -26,3 +26,7 @@ form input {
   text-align: right; */
   float: right;
 }
+
+.warn {
+  color: red;
+}

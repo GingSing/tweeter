@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
     <!-- Bungee Font/ Source Sans Pro (Google Fonts) -->
     <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro&display=swap" rel="stylesheet"> 
@@ -20,6 +21,8 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
   </head>
 
   <body>
@@ -29,7 +32,7 @@
       <span>tweeter</span>
     </nav>
 
-    <header>
+    <header class="header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -44,10 +47,20 @@
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form method="POST" action="/tweets">
-          <textarea rows="1" cols="50" name="text" placeholder="What are you humming about?"></textarea>
+          <textarea id="tweet" rows="1" cols="50" name="text" placeholder="What are you humming about?"></textarea>
           <input type="submit" value="Tweet">
-          <span class="counter">1</span>
+          <span class="counter">140</span>
         </form>
+        <section class="tweets">
+          <article class="tweet">
+            <header>
+              <label class="name">Newton</label>
+              <label class="handler">@SirIsaac</label>
+            </header>
+            <p>Wow! What a tweeterific app!</p>
+            <footer>10 days ago</footer>
+          </article>
+        </section>
       </section>
     </main>
 
