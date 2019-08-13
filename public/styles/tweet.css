@@ -1,4 +1,4 @@
-.tweets {
+#tweets-container {
   margin-top: 4rem;
 }
 
@@ -6,6 +6,7 @@
   border: 3px solid #555;
   padding: 1.5rem;
   color: #777;
+  margin-top: 1.5rem;
 }
 
 .tweet > footer {
@@ -14,12 +15,21 @@
   border-top: 3px solid #555;
 }
 
+.user{
+  display: flex;
+  align-items: center;
+}
+
+.name{
+  margin-left: 1rem;
+}
+
 .tweet:hover {
   box-shadow: 0.5rem 0.5rem #999;
   color: #444;
 }
 
-.tweet>header {
+.tweet header {
   display: flex;
   justify-content: space-between;
 }
