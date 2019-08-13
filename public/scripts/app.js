@@ -5,7 +5,7 @@
  */
 
 $(() => {
-  const createTweetElement = (tweetObj) => {
+  const createTweetElement = (tweet) => {
     let articleElem = $("<article>");
     articleElem.addClass("tweet");
 
@@ -15,25 +15,25 @@ $(() => {
     userDiv.addClass("user");
 
     let avatarImg = $("<img>");
-    avatarImg.attr('src', tweetObj.user.avatars);
+    avatarImg.attr('src', tweet.user.avatars);
     avatarImg.attr('alt', "avatar.png");
 
     let nameLabel = $("<label>");
     nameLabel.addClass("name");
-    nameLabel.text(tweetObj.user.name);
+    nameLabel.text(tweet.user.name);
 
     userDiv.append(avatarImg);
     userDiv.append(nameLabel);
 
     let handlerLabel = $("<label>");
     handlerLabel.addClass("handler");
-    handlerLabel.text(tweetObj.user.handle);
+    handlerLabel.text(tweet.user.handle);
 
     let content = $("<p>");
-    content.text(tweetObj.content.text);
+    content.text(tweet.content.text);
 
     let footer = $("<footer>");
-    footer.text(`${calculateDaysAgo(tweetObj.created_at)} days ago`)
+    footer.text(`${calculateDaysAgo(tweet.created_at)} days ago`)
 
     headerElem.append(userDiv);
     headerElem.append(handlerLabel);
@@ -45,12 +45,20 @@ $(() => {
     return articleElem;
   };
 
+  const renderTweets = (tweets) => {
+    for(let tweet in tweets) {
+      console.log(tweets[tweet]);
+      const $tweet = createTweetElement(tweets[tweet]);
+      $('#tweets-container').append($tweet);
+    }
+  }
+
   const calculateDaysAgo = (time) => {
     return new Date(time).getDate() - (new Date).getDate();
   }
 
   // Test / driver code (temporary). Eventually will get this from the server.
-  const tweetData = {
+  const tweetData = [{
     "user": {
       "name": "Newton",
       "avatars": "https://i.imgur.com/73hZDYK.png",
@@ -60,12 +68,20 @@ $(() => {
         "text": "If I have seen further it is by standing on the shoulders of giants"
       },
     "created_at": 1461116232227
+  },
+  {
+    "user": {
+      "name": "Bob",
+      "avatars": "https://i.imgur.com/73hZDYK.png",
+        "handle": "@Bob"
+      },
+    "content": {
+        "text": "If I have seen further it is by standing on the shoulders of giants"
+      },
+    "created_at": 1461116232227
   }
+]
 
-  const $tweet = createTweetElement(tweetData);
-
-  // Test / driver code (temporary)
-  console.log($tweet); // to see what it looks like
-  $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+  renderTweets(tweetData);
 
 });
