@@ -71,12 +71,13 @@ $(() => {
   };
 
   const renderTweets = (tweets) => {
-    for(let tweet in tweets) {
-      console.log(tweets[tweet]);
+    let reverseTweets = tweets.reverse();
+    $('#tweets-container').empty();
+    for(let tweet in reverseTweets) {
       const $tweet = createTweetElement(tweets[tweet]);
       $('#tweets-container').append($tweet);
     }
-  }
+  };
 
   const calculateDaysAgo = (time) => {
 
@@ -86,27 +87,7 @@ $(() => {
     
     var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));  
     return diffDays;  
-  }
-
-  $('#tweets-form').on("submit", function(evt) {
-    evt.preventDefault();
-    let data = $(this).serialize();
-
-    let wordCount = $(this).find("textarea").val().length;
-    //data validation
-    if (!wordCount) {
-      alert("Your content is not present.");
-    }else if (wordCount > 140) {
-      alert("Your message is too long.");
-    }else{
-      $.ajax({
-        data,
-        url: "/tweets",
-        type: "POST"
-      });
-      $(this).find("textarea").val('');
-    }
-  });
+  };
 
   const loadTweets = (cb) => {
     $.ajax({
@@ -115,6 +96,30 @@ $(() => {
     })
     .then(data => cb(data));
   };
+
+  $('#tweets-form').on("submit", function(evt) {
+    evt.preventDefault();
+    let data = $(this).serialize();
+
+    let wordCount = $(this).find("textarea").val().length;
+
+    //data validation
+    if (!wordCount) {
+      alert("Your content is not present.");
+    } else if (wordCount > 140) {
+      alert("Your message is too long.");
+    } else {
+      $.ajax({
+        data,
+        url: "/tweets",
+        type: "POST"
+      })
+      .then(() => {
+        loadTweets(data => renderTweets(data));
+      });
+      $(this).find("textarea").val('');
+    }
+  });
 
   loadTweets(data => renderTweets(data));
 });
