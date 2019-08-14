@@ -33,7 +33,32 @@ $(() => {
     content.text(tweet.content.text);
 
     let footer = $("<footer>");
-    footer.text(`${calculateDaysAgo(tweet.created_at)} days ago`)
+    let footerP = $("<p>");
+
+    let footerButtons = $("<div>");
+    let flagButton = $("<button>");
+    let retweetButton = $("<button>");
+    let likeButton = $("<button>");
+
+    let flagIcon = $("<i>");
+    flagIcon.addClass("fa fa-flag");
+    flagButton.append(flagIcon);
+
+    let retweetIcon = $("<i>");
+    retweetIcon.addClass("fa fa-retweet");
+    retweetButton.append(retweetIcon);
+
+    let likeIcon = $("<i>");
+    likeIcon.addClass("fa fa-heart");
+    likeButton.append(likeIcon);
+
+    footerButtons.append(flagButton);
+    footerButtons.append(retweetButton);
+    footerButtons.append(likeButton);
+
+    footer.append(footerP);
+    footer.append(footerButtons);
+    footerP.text(`${calculateDaysAgo(tweet.created_at)} days ago`);
 
     headerElem.append(userDiv);
     headerElem.append(handlerLabel);

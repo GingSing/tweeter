@@ -42,3 +42,20 @@
   display: inline-block;
   color: #777;
 }
+
+.tweet footer {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.tweet footer button {
+  color: blue;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.tweet footer button:hover {
+  cursor: pointer;
+}
