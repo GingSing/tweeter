@@ -79,34 +79,42 @@ $(() => {
   }
 
   const calculateDaysAgo = (time) => {
-    return new Date(time).getDate() - (new Date).getDate();
+
+    var oneDay = 24*60*60*1000; //milliseconds
+    var firstDate = new Date();
+    var secondDate = new Date(time);
+    
+    var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));  
+    return diffDays;  
   }
 
-  // Test / driver code (temporary). Eventually will get this from the server.
-  const tweetData = [{
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@SirIsaac"
-      },
-    "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Bob",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@Bob"
-      },
-    "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-    "created_at": 1461116232227
-  }
-]
+  $('#tweets-form').on("submit", function(evt) {
+    evt.preventDefault();
+    let data = $(this).serialize();
 
-  renderTweets(tweetData);
+    let wordCount = $(this).find("textarea").val().length;
+    //data validation
+    if (!wordCount) {
+      alert("Your content is not present.");
+    }else if (wordCount > 140) {
+      alert("Your message is too long.");
+    }else{
+      $.ajax({
+        data,
+        url: "/tweets",
+        type: "POST"
+      });
+      $(this).find("textarea").val('');
+    }
+  });
 
+  const loadTweets = (cb) => {
+    $.ajax({
+      url: "/tweets",
+      type: 'GET'
+    })
+    .then(data => cb(data));
+  };
+
+  loadTweets(data => renderTweets(data));
 });
