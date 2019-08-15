@@ -24,7 +24,6 @@ body {
   background-color: #f4f1ec;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 24px;
-  /* height: 1000px; */
 }
 
 /*
@@ -34,7 +33,27 @@ body {
  main {
    width: 90%;
    position: relative;
-   top: 520px;
+   top: 30rem;
    background-color: #f4f1ec;
    margin: 0 auto;
+ }
+
+
+ @media (min-width: 1024px) {
+   .content {
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+   }
+   main {
+     top: 120px;
+     width: 50vw;
+     margin: 0;
+   }
+ }
+
+ @media (min-width: 768px) and (max-width: 1023px) {
+   main{ 
+     top: 25rem;
+   }
  }

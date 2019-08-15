@@ -22,3 +22,16 @@
   top: 258px;
   text-align: center;
 }
+
+@media (min-width: 1024px) {
+  .header {
+    width: 30vw;
+    position: relative;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header {
+    top: 0;
+  }
+}
