@@ -138,11 +138,11 @@ $(() => {
 
   const hideButton = () => {
     $(".new-tweet-form").slideToggle(200);
+    $("#tweets-form").find("textarea").focus();
   };
 
 
   $("#nav-button").on('click', (evt) => {
-    console.log("hi");
     hideButton();
   });
 
