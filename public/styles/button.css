@@ -1,0 +1,10 @@
+.move-up {
+  position: fixed;
+  bottom: 10px;
+  right: 0;
+  display: none;
+}
+
+.show {
+  display: inline-block;
+}

@@ -8,8 +8,19 @@ nav {
   color: #FFFFFF;
   font-family: 'Bungee', cursive;
   padding: 1.5em;
+  display: flex;
+  justify-content: space-between;
 }
 
-nav span {
-  
+nav .nav-tool {
+  display: flex;
+  flex-direction: column;
+}
+
+nav .nav-tool button{
+  background: none;
+  color: orange;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }

@@ -1,7 +1,7 @@
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
+ * Reminder: Use (and do all your DOM work in) jQuery"s document ready function
  */
 
 $(() => {
@@ -15,8 +15,8 @@ $(() => {
     userDiv.addClass("user");
 
     let avatarImg = $("<img>");
-    avatarImg.attr('src', tweet.user.avatars);
-    avatarImg.attr('alt', "avatar.png");
+    avatarImg.attr("src", tweet.user.avatars);
+    avatarImg.attr("alt", "avatar.png");
 
     let nameLabel = $("<label>");
     nameLabel.addClass("name");
@@ -72,10 +72,10 @@ $(() => {
 
   const renderTweets = (tweets) => {
     let reverseTweets = tweets.reverse();
-    $('#tweets-container').empty();
+    $("#tweets-container").empty();
     for(let tweet in reverseTweets) {
       const $tweet = createTweetElement(tweets[tweet]);
-      $('#tweets-container').append($tweet);
+      $("#tweets-container").append($tweet);
     }
   };
 
@@ -92,12 +92,21 @@ $(() => {
   const loadTweets = (cb) => {
     $.ajax({
       url: "/tweets",
-      type: 'GET'
+      type: "GET"
     })
     .then(data => cb(data));
   };
 
-  $('#tweets-form').on("submit", function(evt) {
+  const loadError = (message) => {
+    const error = $(".error");
+    error.empty();
+    const errorMessage = $("<p>");
+    errorMessage.text(message);
+    error.append(errorMessage);
+    error.slideDown();
+  }
+
+  $("#tweets-form").on("submit", function(evt) {
     evt.preventDefault();
     let data = $(this).serialize();
 
@@ -105,9 +114,9 @@ $(() => {
 
     //data validation
     if (!wordCount) {
-      alert("Your content is not present.");
+      loadError("Your content is not present.");
     } else if (wordCount > 140) {
-      alert("Your message is too long.");
+      loadError("Your message is too long.");
     } else {
       $.ajax({
         data,
@@ -117,8 +126,18 @@ $(() => {
       .then(() => {
         loadTweets(data => renderTweets(data));
       });
-      $(this).find("textarea").val('');
+      $(this).find("textarea").val("");
     }
+  });
+
+  const hideButton = () => {
+    $(".new-tweet-form").slideToggle(200);
+  };
+
+
+  $("#nav-button").on('click', (evt) => {
+    console.log("hi");
+    hideButton();
   });
 
   loadTweets(data => renderTweets(data));

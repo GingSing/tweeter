@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/button.css" type="text/css" />
 
     <!-- Bungee Font/ Source Sans Pro (Google Fonts) -->
     <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro&display=swap" rel="stylesheet"> 
@@ -23,6 +24,7 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    <script type="text/javascript" src="/scripts/composer.js"></script>
 
   </head>
 
@@ -30,7 +32,11 @@
 
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter</span>
+      <span class="nav-title">tweeter</span>
+      <div class="nav-tool">
+        <label><strong>Write</strong> a new Tweet</label>
+        <button id="nav-button"><i class="fa fa-sort-down"></i></button>
+      </div>
     </nav>
 
     <header class="header">
@@ -46,15 +52,20 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form id="tweets-form">
-          <textarea id="tweet" rows="1" cols="50" name="text" placeholder="What are you humming about?"></textarea>
-          <input type="submit" value="Tweet">
-          <span class="counter">140</span>
-        </form>
+        <div class="error">
+        </div>
+        <div class="new-tweet-form">
+          <h2>Compose Tweet</h2>
+          <form id="tweets-form">
+            <textarea id="tweet" rows="1" cols="50" name="text" placeholder="What are you humming about?"></textarea>
+            <input type="submit" value="Tweet">
+            <span class="counter">140</span>
+          </form>
+        </div>
         <section id="tweets-container">
         </section>
       </section>
+      <button class="move-up"><i class="fa fa-chevron-circle-up move-up-icon"></i></button>
     </main>
 
   </body>

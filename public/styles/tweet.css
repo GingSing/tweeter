@@ -59,3 +59,15 @@
 .tweet footer button:hover {
   cursor: pointer;
 }
+
+.move-up {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.move-up-icon {
+  color: orange;
+  font-size: 5rem;
+}
