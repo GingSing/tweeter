@@ -34,6 +34,8 @@ form input {
 .error {
   border: 3px solid red;
   margin-top: 1.25rem;
-  height: 4rem;
-  /* display: none; */
+  height: 5rem;
+  display: none;
+  color: red;
+  text-align: center;
 }

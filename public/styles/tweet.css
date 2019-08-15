@@ -65,9 +65,23 @@
   background: none;
   outline: none;
   cursor: pointer;
+  position: fixed;
+  bottom: 10px;
+  right: 0;
+  display: none;
 }
 
 .move-up-icon {
   color: orange;
   font-size: 5rem;
+  transition: color 0.5s;
+}
+
+.move-up-icon:hover {
+  color: blue;
+  transition: color 0.5s;
+}
+
+.show {
+  display: inline-block;
 }

@@ -106,6 +106,11 @@ $(() => {
     error.slideDown();
   }
 
+  const unloadError = () => {
+    const error = $(".error");
+    error.slideUp();
+  }
+
   $("#tweets-form").on("submit", function(evt) {
     evt.preventDefault();
     let data = $(this).serialize();
@@ -114,9 +119,9 @@ $(() => {
 
     //data validation
     if (!wordCount) {
-      loadError("Your content is not present.");
+      loadError("❗ Your content is not present. ❗");
     } else if (wordCount > 140) {
-      loadError("Your message is too long.");
+      loadError("❗ Your message is too long. ❗");
     } else {
       $.ajax({
         data,
@@ -127,6 +132,7 @@ $(() => {
         loadTweets(data => renderTweets(data));
       });
       $(this).find("textarea").val("");
+      unloadError();
     }
   });
 
