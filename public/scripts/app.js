@@ -30,6 +30,7 @@ $(() => {
     handlerLabel.text(tweet.user.handle);
 
     let content = $("<p>");
+    content.addClass("tweetPara");
     content.text(tweet.content.text);
 
     let footer = $("<footer>");

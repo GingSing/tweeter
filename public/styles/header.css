@@ -1,20 +1,21 @@
 .header {
-  position: absolute;
   height: 400px;
   width: 100%;
-  top: 120px;
+  top: 15rem;
   background-color: #db8c04;
   background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
 }
 
 .header div { 
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .header div img {
   position: absolute;
-  left: 50%;
-  margin-left: -129px;
+  height: auto;
+  margin-top: 60px;
 }
 
 .header div h2 {
@@ -26,12 +27,21 @@
 @media (min-width: 1024px) {
   .header {
     width: 30vw;
-    position: relative;
+    left: 4rem;
+    position: fixed;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .header {
     top: 0;
+    position: absolute;
+  }
+}
+
+@media (max-width: 767px) {
+  .header{
+    top: 7rem;
+    position: relative;
   }
 }

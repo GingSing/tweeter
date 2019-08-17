@@ -25,6 +25,10 @@ nav .nav-tool button {
   cursor: pointer;
 }
 
+.nav-title {
+  font-size: 2.5rem;
+}
+
 .bounce {
   animation: bounce 2s infinite;
 }
@@ -47,4 +51,14 @@ nav .nav-tool button {
     position: absolute;
   }
 
+}
+
+@media (max-width: 767px) {
+  nav {
+    justify-content: center;
+    position: absolute;
+  }
+  nav .nav-tool {
+    display: none;
+  }
 }
