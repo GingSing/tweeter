@@ -118,23 +118,26 @@ $(() => {
 
     let wordCount = $(this).find("textarea").val().length;
 
+    unloadError();
     //data validation
-    if (!wordCount) {
-      loadError("❗ Your content is not present. ❗");
-    } else if (wordCount > 140) {
-      loadError("❗ Your message is too long. ❗");
-    } else {
-      $.ajax({
-        data,
-        url: "/tweets",
-        type: "POST"
-      })
-      .then(() => {
-        loadTweets(data => renderTweets(data));
-      });
-      $(this).find("textarea").val("");
-      unloadError();
-    }
+    setTimeout(() => {
+      if (!wordCount) {
+        loadError("❗ Your content is not present. ❗");
+      } else if (wordCount > 140) {
+        loadError("❗ Your message is too long. ❗");
+      } else {
+        $.ajax({
+          data,
+          url: "/tweets",
+          type: "POST"
+        })
+        .then(() => {
+          loadTweets(data => renderTweets(data));
+        });
+        $(this).find("textarea").val("");
+        unloadError();
+      }
+    }, 300);
   });
 
   const hideButton = () => {
