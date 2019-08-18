@@ -1,67 +1,53 @@
 #tweets-container {
   margin-top: 4rem;
 }
-
-.tweetPara {
-  word-wrap: break-word;
-}
-
-.tweet {
+#tweets-container .tweet {
   border: 3px solid #555;
   padding: 1.5rem;
   color: #777;
   margin-top: 1.5rem;
 }
-
-.tweet > footer {
-  padding: 0.5rem 0 0 0.5rem;
-  font-size: 1rem;
-  border-top: 3px solid #555;
-}
-
-.user{
-  display: flex;
-  align-items: center;
-}
-
-.name{
-  margin-left: 1rem;
-}
-
-.tweet:hover {
+#tweets-container .tweet:hover {
   box-shadow: 0.5rem 0.5rem #999;
   color: #444;
 }
-
-.tweet header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.handler {
-  display: none;
-}
-
-.tweet:hover .handler {
+#tweets-container .tweet:hover .handler {
   display: inline-block;
   color: #777;
 }
-
-.tweet footer {
+#tweets-container .tweet header {
+  display: flex;
+  justify-content: space-between;
+}
+#tweets-container .tweet header .user {
+  display: flex;
+  align-items: center;
+}
+#tweets-container .tweet header .name {
+  margin-left: 1rem;
+}
+#tweets-container .tweet header .handler {
+  display: none;
+}
+#tweets-container .tweet footer {
+  padding: 0.5rem 0 0 0.5rem;
+  font-size: 1rem;
+  border-top: 3px solid #555;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-.tweet footer button {
+#tweets-container .tweet footer button {
   color: blue;
   background: none;
   border: none;
   outline: none;
 }
-
-.tweet footer button:hover {
+#tweets-container .tweet footer button:hover {
   cursor: pointer;
+}
+#tweets-container .tweet .tweetPara {
+  word-wrap: break-word;
 }
 
 .move-up {
@@ -80,7 +66,6 @@
   font-size: 5rem;
   transition: color 0.5s;
 }
-
 .move-up-icon:hover {
   color: blue;
   transition: color 0.5s;
@@ -89,3 +74,5 @@
 .show {
   display: inline-block;
 }
+
+/*# sourceMappingURL=tweet.css.map */

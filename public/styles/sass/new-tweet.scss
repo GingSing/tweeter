@@ -1,0 +1,40 @@
+$error-color: red;
+$form-input-background-color: blue;
+$form-input-color: white;
+$textarea-border-color: black;
+
+form {
+  font-family: 'Bungee', cursive;
+
+  input {
+    color: $form-input-color;
+    background-color: $form-input-background-color;
+    border: none;
+  }
+  
+  .counter {
+    float: right;
+  }
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+  background: none;
+  border: none;
+  border-bottom: 3px solid $textarea-border-color;
+  margin-bottom: 10px;
+}
+
+.warn {
+  color: $error-color;
+}
+
+.error {
+  border: 3px solid $error-color;
+  margin-top: 1.25rem;
+  height: 5rem;
+  display: none;
+  color: $error-color;
+  text-align: center;
+}

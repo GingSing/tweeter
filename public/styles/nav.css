@@ -6,17 +6,35 @@ nav {
   z-index: 999;
   background-color: #4056A1;
   color: #FFFFFF;
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
   padding: 1.5em;
   display: flex;
   justify-content: space-between;
 }
-
+@media (min-width: 768px) and (max-width: 1023px) {
+  nav {
+    background-color: transparent;
+    position: absolute;
+  }
+}
+@media (max-width: 767px) {
+  nav {
+    justify-content: space-around;
+    position: absolute;
+  }
+}
+nav .nav-title {
+  font-size: 2.5rem;
+}
 nav .nav-tool {
   display: flex;
   flex-direction: column;
 }
-
+@media (max-width: 767px) {
+  nav .nav-tool label {
+    display: none;
+  }
+}
 nav .nav-tool button {
   background: none;
   color: red;
@@ -24,12 +42,7 @@ nav .nav-tool button {
   outline: none;
   cursor: pointer;
 }
-
-.nav-title {
-  font-size: 2.5rem;
-}
-
-.bounce {
+nav .nav-tool button .bounce {
   animation: bounce 2s infinite;
 }
 
@@ -45,20 +58,4 @@ nav .nav-tool button {
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-  nav {
-    background-color: transparent;
-    position: absolute;
-  }
-
-}
-
-@media (max-width: 767px) {
-  nav {
-    justify-content: center;
-    position: absolute;
-  }
-  nav .nav-tool {
-    display: none;
-  }
-}
+/*# sourceMappingURL=nav.css.map */

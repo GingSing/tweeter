@@ -1,0 +1,96 @@
+$tweet-border-color: #555;
+$tweet-color:#777;
+$tweet-box-shadow-color: #999;
+$tweet-hover-color: #444;
+$footer-buttons-color: blue;
+$move-up-icon-color: orange;
+$move-up-change-color: blue;
+
+#tweets-container {
+  margin-top: 4rem;
+
+  .tweet {
+    border: 3px solid $tweet-border-color;
+    padding: 1.5rem;
+    color: $tweet-color;
+    margin-top: 1.5rem;
+    
+    &:hover {
+      box-shadow: 0.5rem 0.5rem $tweet-box-shadow-color;
+      color: $tweet-hover-color;
+    }
+    
+    &:hover .handler {
+      display: inline-block;
+      color: $tweet-color;
+    }
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      
+      .user{
+        display: flex;
+        align-items: center;
+      }
+      
+      .name{
+        margin-left: 1rem;
+      }
+      
+      .handler {
+        display: none;
+      }
+    }
+    
+    footer {
+      padding: 0.5rem 0 0 0.5rem;
+      font-size: 1rem;
+      border-top: 3px solid $tweet-border-color;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      button {
+        color: $footer-buttons-color;
+        background: none;
+        border: none;
+        outline: none;
+        
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  
+    .tweetPara {
+      word-wrap: break-word;
+    }
+  }
+}
+
+.move-up {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  position: fixed;
+  bottom: 10px;
+  right: 0;
+  display: none;
+}
+
+.move-up-icon {
+  color: $move-up-icon-color;
+  font-size: 5rem;
+  transition: color 0.5s;
+ 
+  &:hover {
+    color: $move-up-change-color;
+    transition: color 0.5s;
+  }
+}
+
+.show {
+  display: inline-block;
+}

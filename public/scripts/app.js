@@ -19,8 +19,7 @@ $(() => {
     avatarImg.attr("alt", "avatar.png");
 
     let nameLabel = $("<label>");
-    nameLabel.addClass("name");
-    nameLabel.text(tweet.user.name);
+    nameLabel.addClass("name").text(tweet.user.name);
 
     userDiv.append(avatarImg);
     userDiv.append(nameLabel);
@@ -112,6 +111,14 @@ $(() => {
     error.slideUp();
   }
 
+
+  const hideButton = () => {
+    $(".new-tweet-form").slideToggle(200);
+    $("#tweets-form").find("textarea").focus();
+  };
+
+  hideButton(); //on page load hide
+
   $("#tweets-form").on("submit", function(evt) {
     evt.preventDefault();
     let data = $(this).serialize();
@@ -139,12 +146,6 @@ $(() => {
       }
     }, 300);
   });
-
-  const hideButton = () => {
-    $(".new-tweet-form").slideToggle(200);
-    $("#tweets-form").find("textarea").focus();
-  };
-
 
   $("#nav-button").on('click', (evt) => {
     hideButton();

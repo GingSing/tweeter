@@ -1,0 +1,43 @@
+$header-background-color: #db8c04;
+
+.header {
+  height: 400px;
+  width: 100%;
+  top: 15rem;
+  background-color: $header-background-color;
+  background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+  
+  @media (min-width: 1024px) {
+    width: 30vw;
+    left: 4rem;
+    position: fixed;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    top: 0;
+    position: absolute;
+  }
+
+  @media (max-width: 767px) {
+    top: 7rem;
+    position: relative;
+  }
+
+  div { 
+    position: relative;
+    display: flex;
+    justify-content: center;
+    
+    img {
+      position: absolute;
+      height: auto;
+      margin-top: 60px;
+    }
+
+    h2 {
+      position: relative;
+      top: 258px;
+      text-align: center;
+    }
+  }
+}

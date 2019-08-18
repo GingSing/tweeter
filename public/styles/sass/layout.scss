@@ -1,0 +1,52 @@
+  $body-color: #545149;
+  $body-background-color: #f4f1ec;
+  
+  html {
+    box-sizing: border-box;
+    font-family: Sans-Serif;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  nav span{
+    font-family: 'Bungee', cursive;
+  }
+
+/*
+ * Global layout stuff
+ */
+
+  body {
+    color: $body-color;
+    background-color: $body-background-color;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 24px;
+  }
+
+ main {
+    width: 90%;
+    position: relative;
+    top: 7rem;
+    background-color: $body-background-color;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+
+    @media (min-width: 1024px) {
+    top: 120px;
+    width: 50vw;
+    margin: 0;
+    position: absolute;
+    right: 4rem;
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      top: 25rem;
+    }
+ }
+
+ .content {
+    @media (min-width: 1024px) {
+      display: flex;
+    }
+ }
